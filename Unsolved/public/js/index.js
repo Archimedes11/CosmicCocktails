@@ -1,47 +1,49 @@
-// Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+// Get references to page elements this is the logic
+var $drinksName = $("#drinks-name");
+var $drinksIngredients = $("#drinks-ingredients");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $drinksList = $("#drinks-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveDrinks: function(drinks) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/drinks",
+      data: JSON.stringify(drinks)
     });
   },
-  getExamples: function() {
+  getDrinks: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/drinks",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteDrinks: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/drinks/" + id,
       type: "DELETE"
     });
   }
 };
 
+//this is where third party api is inserted????? -- add to api routes and html routes
+
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshDrinks = function() {
+  API.getDrinks().then(function(data) {
+    var $drinks = data.map(function(drinks) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(drinks.name)
+        .attr("href", "/drinks/" + drinks.id);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": drinks.id
         })
         .append($a);
 
@@ -54,8 +56,9 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+
+    $drinksList.empty();
+    $drinksList.append($drinks);
   });
 };
 
@@ -64,22 +67,22 @@ var refreshExamples = function() {
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var drinks = {
+    name: $drinksName.val().trim(),
+    ingredients: $drinksIngredients.val().trim()
   };
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
+  if (!(drinks.name && drinks.ingredients)) {
+    alert("You must enter a drink or an ingredient!");
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveDrinks(drinks).then(function() {
+    refreshDrinks();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
+  $drinksName.val("");
+  $drinksIngredients.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -89,11 +92,11 @@ var handleDeleteBtnClick = function() {
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
+  API.deleteDrink(idToDelete).then(function() {
+    refreshDrink();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$drinksList.on("click", ".delete", handleDeleteBtnClick);
