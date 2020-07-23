@@ -11,7 +11,7 @@ var db = {};
 var app = require("../server");
 
 
-
+//sequelize;
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
 } else {

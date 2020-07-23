@@ -1,6 +1,6 @@
 // Get references to page elements this is the logic
-var $drinksText = $("#drinks-text");
-var $drinksDescription = $("#drinks-description");
+var $drinksName = $("#drinks-name");
+var $drinksIngredients = $("#drinks-ingredients");
 var $submitBtn = $("#submit");
 var $drinksList = $("#drinks-list");
 
@@ -37,7 +37,7 @@ var refreshDrinks = function() {
   API.getDrinks().then(function(data) {
     var $drinks = data.map(function(drinks) {
       var $a = $("<a>")
-        .text(drinks.text)
+        .text(drinks.name)
         .attr("href", "/drinks/" + drinks.id);
 
       var $li = $("<li>")
@@ -56,6 +56,7 @@ var refreshDrinks = function() {
       return $li;
     });
 
+
     $drinksList.empty();
     $drinksList.append($drinks);
   });
@@ -67,11 +68,11 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var drinks = {
-    text: $drinksText.val().trim(),
-    description: $drinksDescription.val().trim()
+    name: $drinksName.val().trim(),
+    ingredients: $drinksIngredients.val().trim()
   };
 
-  if (!(drinks.text && drinks.description)) {
+  if (!(drinks.name && drinks.ingredients)) {
     alert("You must enter a drink or an ingredient!");
     return;
   }
@@ -80,8 +81,8 @@ var handleFormSubmit = function(event) {
     refreshDrinks();
   });
 
-  $drinksText.val("");
-  $drinksDescription.val("");
+  $drinksName.val("");
+  $drinksIngredients.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
