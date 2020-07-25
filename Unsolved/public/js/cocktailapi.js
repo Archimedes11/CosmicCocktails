@@ -24,7 +24,13 @@ function drinkType(userSearch) {
                     j = 16;
                 };
 
-
+                console.log(liquidType);
+                console.log(alcohol);
+                console.log(glass);
+                console.log(instructions);
+                console.log(drinkImage);
+                console.log(ingredient);
+                console.log(measure);
 
 
             }
