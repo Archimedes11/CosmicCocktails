@@ -1,4 +1,5 @@
 var db = require("../models");
+var drinkUtilities = require("../utilities-backend/cocktailapi.js");
 
 module.exports = function(app) {
   // Get all examples
@@ -31,6 +32,18 @@ module.exports = function(app) {
     db.Drink.destroy({ where: { id: req.params.id } }).then(function(dbDrinks) {
       res.json(dbDrinks);
     });
+  });
+
+  app.get("/api/cocktailapi/:drinkname", function(req, res) {
+
+    var cocktailname = req.params.drinkname;
+
+    drinkUtilities.getDrinkFromCocktaildb(cocktailname, function(data) {
+
+      res.json(data);
+      
+    });
+
   });
 };
 // PUT route for updating todos. We can access the updated todo in req.body

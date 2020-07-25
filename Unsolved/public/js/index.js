@@ -27,6 +27,12 @@ var API = {
       url: "api/drinks/" + id,
       type: "DELETE"
     });
+  },
+  getCocktailAPIInfo: function(drinkName) {
+    return $.ajax({
+      url: "api/cocktailapi/" + drinkName,
+      type: "GET"
+    });
   }
 };
 
@@ -62,6 +68,8 @@ var refreshDrinks = function() {
   });
 };
 
+
+
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
@@ -77,12 +85,25 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveDrinks(drinks).then(function() {
-    refreshDrinks();
+  API.getCocktailAPIInfo(drinks.drink_name).then(function(data) {
+
+    var drinkInfo = data;
+    console.log(drinkInfo);
+
+    // figure out what info you want from drinkInfo here.  add to the drinks object and save to backend.
+    // make SURE to update the model on the backend with any of the fields that you do add to the drinks object, so they are sync'd up.
+    // also drop the table on the database and restart server if you change the model
+    
+    API.saveDrinks(drinks).then(function() {
+      refreshDrinks();
+
+      $drinksName.val("");
+      //$drinksIngredients.val("");
+    });
+
+
   });
 
-  $drinksName.val("");
-  //$drinksIngredients.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -99,4 +120,6 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
+
 $drinksList.on("click", ".delete", handleDeleteBtnClick);
+
