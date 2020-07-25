@@ -1,6 +1,6 @@
 // Get references to page elements this is the logic
 var $drinksName = $("#drinks-name");
-var $drinksIngredients = $("#drinks-ingredients");
+//var $drinksIngredients = $("#drinks-ingredients");
 var $submitBtn = $("#submit");
 var $drinksList = $("#drinks-list");
 
@@ -22,7 +22,7 @@ var API = {
       type: "GET"
     });
   },
-  deleteDrinks: function(id) {
+  deleteDrink: function(id) {
     return $.ajax({
       url: "api/drinks/" + id,
       type: "DELETE"
@@ -30,14 +30,14 @@ var API = {
   }
 };
 
-//this is where third party api is inserted????? -- add to api routes and html routes
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshDrinks = function() {
   API.getDrinks().then(function(data) {
+    console.log(data);
     var $drinks = data.map(function(drinks) {
       var $a = $("<a>")
-        .text(drinks.name)
+        .text(drinks.drink_name)
         .attr("href", "/drinks/" + drinks.id);
 
       var $li = $("<li>")
@@ -68,11 +68,11 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var drinks = {
-    name: $drinksName.val().trim(),
-    ingredients: $drinksIngredients.val().trim()
+    drink_name: $drinksName.val().trim(),
+    //ingredients: $drinksIngredients.val().trim()
   };
 
-  if (!(drinks.name && drinks.ingredients)) {
+  if (!(drinks.drink_name)) {
     alert("You must enter a drink or an ingredient!");
     return;
   }
@@ -82,7 +82,7 @@ var handleFormSubmit = function(event) {
   });
 
   $drinksName.val("");
-  $drinksIngredients.val("");
+  //$drinksIngredients.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -93,7 +93,7 @@ var handleDeleteBtnClick = function() {
     .attr("data-id");
 
   API.deleteDrink(idToDelete).then(function() {
-    refreshDrink();
+    refreshDrinks();
   });
 };
 

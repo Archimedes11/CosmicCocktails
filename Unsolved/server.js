@@ -9,12 +9,12 @@ var PORT = process.env.PORT || 3000;
 
 var bodyParser = require('body-parser');
 //to parse url encoded data
-app.use(bodyParser.urlencoded({ extended: true}));
+app.use(bodyParser.urlencoded({ extended: false}));
 //to parse json data
 app.use(bodyParser.json());
 
 // Middleware
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
