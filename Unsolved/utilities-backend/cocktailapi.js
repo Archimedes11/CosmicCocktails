@@ -5,40 +5,54 @@
 const axios = require('axios').default;
 //Import the keys.js file
 //var keys = require("/keys.js");
+var parseDrink = (data) => {
+    var drink = {
+        drinkName: data.strDrink,
+        alcohol: data.strAlcoholic,
+        glass: data.strGlass,
+        instructions: data.strInstructions,
+        drinkImage: data.strDrinkThumb,
+        idDrink: data.idDrink,
+        ingredients: []
+    }
+
+    for(var j = 1; j < 16; j++) {
+        var name = data["strIngredient" + j]
+        var measurement = data["strMeasure" + j]
+
+        if(name !== null) {
+            drink.ingredients.push({name, measurement})
+        } else {
+            break;
+        }
+    }
+
+    return drink;
+}
+
 var drinkUtilities = {
-    getDrinkFromCocktaildb: function(drinksName, callback) {
-        console.log("this works");
+    getDrinksFromCocktaildb: function(searchQuery, callback) {
         // Run the get request via json using axios
-        axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + drinksName)
+        axios.get("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + searchQuery)
             .then(function (response) {
-                var apiCocktail = response.data;
-                for (var i = 0; i < apiCocktail.length; i++) {
-                    var liquidType = apiCocktail[i].drinks.strDrink;
-                    var alcohol = apiCocktail[i].drinks.strAlcoholic;
-                    var glass = apiCocktail[i].drinks.strGlass;
-                    var instructions = apiCocktail[i].drinks.strInstructions;
-                    var drinkImage = apiCocktail[i].drinks.strDrinkThumb;
+                var drinks = response.data.drinks;
+                var drinks_final = [];
 
-                    for (var j = 1; j < apiCocktail.length; j++)
-                        var ingredient = apiCocktail[i].drinks["strIngredient" + j];
-                    if (!ingredient === null) {
-                        var measure = apiCocktail[i].drinks["strMeasure" + j];
-                    } else {
-                        j = 16;
-                    };
-
-                    console.log(liquidType);
-                    console.log(alcohol);
-                    console.log(glass);
-                    console.log(instructions);
-                    console.log(drinkImage);
-                    console.log(ingredient);
-                    console.log(measure);
+                // Process each drink data
+                for (var i = 0; i < drinks.length; i++) {
+                    var drink = parseDrink(drinks[i]);
+                    drinks_final.push(drink);
                 }
 
-                return callback(apiCocktail);
+                callback(drinks_final);
             }
         );
+    },
+
+    getCocktailByID: async (idDrink) => {
+        const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${idDrink}`)
+        const drink_data = response.data.drinks[0];
+        return parseDrink(drink_data);
     }
 }
 

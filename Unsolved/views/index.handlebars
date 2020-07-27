@@ -5,25 +5,21 @@
         <h1>{{msg}}</h1>
         <h2>Pick Your Poison!</h2>
 
-        <form class="clearfix mb-4">
+        <form class="clearfix mb-4" method="GET" action="/">
           <div class="form-group">
             <label for="drinks-name">Drink Name</label>
-            <input type="text" id="drinks-name" class="form-control" aria-describedby="drinks-name" placeholder="Enter Drink Name">
+            <input name="query" type="text" id="drinks-name" class="form-control" aria-describedby="drinks-name" placeholder="Enter Drink Name">
           </div>
-
-          <!--<div class="form-group">
-            <label for="drinks-ingredients">Drink Ingredients</label>
-            <textarea class="form-control" id="drinks-ingredients" aria-describedby="drinks-ingriedients" placeholder="Enter Drink Ingredients"></textarea>
-          </div>-->
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <button type="submit" id="submit" class="btn btn-primary float-right">Submit</button>
         </form>
 
-        <h3>Drinks:</h3>
+        <h3>Results:</h3>
         <ul id="drinks-list" class="list-group">
           {{#each drinks}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="drink/{{this.id}}">{{this.drink_name}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+          <li data-id="{{this.idDrink}}" class="list-group-item">
+            <a href="drink/{{this.idDrink}}">{{this.drinkName}}</a>
+            <img class="thumbnail" src="{{this.drinkImage}}" alt="">
+            {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
           </li>
           {{/each}}
         </ul>

@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>{{drink.drinkName}}</h1>
+  <img style="height: 200px" src="{{drink.drinkImage}}" alt="">
+  <h2>Type: {{drink.alcohol}}</h2>
+  <h2>Glass: {{drink.glass}}</h2>
+  <h2>Instructions</h2>
+  <p>{{drink.instructions}}</p>
+
+  <h2>Ingredients</h2>
+  <ul>
+    {{#each drink.ingredients}}
+      <li>{{this.name}}: <b>{{this.measurement}}</b></li>
+      <img src="https://www.thecocktaildb.com/images/ingredients/{{this.name}}-Small.png" alt="">
+      <hr>
+    {{/each}}
+  </ul>
+
+</div>
