@@ -25,3 +25,5 @@ module.exports = function(app) {
     res.render("404");
   });
 };
+
+//add code to add user entry to the database

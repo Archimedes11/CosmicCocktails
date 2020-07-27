@@ -1,6 +1,6 @@
 // Get references to page elements this is the logic
 var $drinksName = $("#drinks-name");
-var $drinksIngredients = $("#drinks-ingredients");
+//var $drinksIngredients = $("#drinks-ingredients");
 var $submitBtn = $("#submit");
 var $drinksList = $("#drinks-list");
 
@@ -22,22 +22,28 @@ var API = {
       type: "GET"
     });
   },
-  deleteDrinks: function(id) {
+  deleteDrink: function(id) {
     return $.ajax({
       url: "api/drinks/" + id,
       type: "DELETE"
     });
+  },
+  getCocktailAPIInfo: function(drinkName) {
+    return $.ajax({
+      url: "api/cocktailapi/" + drinkName,
+      type: "GET"
+    });
   }
 };
 
-//this is where third party api is inserted????? -- add to api routes and html routes
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshDrinks = function() {
   API.getDrinks().then(function(data) {
+    console.log(data);
     var $drinks = data.map(function(drinks) {
       var $a = $("<a>")
-        .text(drinks.name)
+        .text(drinks.drink_name)
         .attr("href", "/drinks/" + drinks.id);
 
       var $li = $("<li>")
@@ -62,27 +68,42 @@ var refreshDrinks = function() {
   });
 };
 
+
+
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var drinks = {
-    name: $drinksName.val().trim(),
-    ingredients: $drinksIngredients.val().trim()
+    drink_name: $drinksName.val().trim(),
+    //ingredients: $drinksIngredients.val().trim()
   };
 
-  if (!(drinks.name && drinks.ingredients)) {
+  if (!(drinks.drink_name)) {
     alert("You must enter a drink or an ingredient!");
     return;
   }
 
-  API.saveDrinks(drinks).then(function() {
-    refreshDrinks();
+  API.getCocktailAPIInfo(drinks.drink_name).then(function(data) {
+
+    var drinkInfo = data;
+    console.log(drinkInfo);
+
+    // figure out what info you want from drinkInfo here.  add to the drinks object and save to backend.
+    // make SURE to update the model on the backend with any of the fields that you do add to the drinks object, so they are sync'd up.
+    // also drop the table on the database and restart server if you change the model
+    
+    API.saveDrinks(drinks).then(function() {
+      refreshDrinks();
+
+      $drinksName.val("");
+      //$drinksIngredients.val("");
+    });
+
+
   });
 
-  $drinksName.val("");
-  $drinksIngredients.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -93,10 +114,12 @@ var handleDeleteBtnClick = function() {
     .attr("data-id");
 
   API.deleteDrink(idToDelete).then(function() {
-    refreshDrink();
+    refreshDrinks();
   });
 };
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
+
 $drinksList.on("click", ".delete", handleDeleteBtnClick);
+
