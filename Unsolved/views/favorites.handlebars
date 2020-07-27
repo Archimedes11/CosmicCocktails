@@ -1,0 +1,12 @@
+<div class="container">
+  <h3>Favorites:</h3>
+  <ul id="drinks-list" class="list-group">
+    {{#each drinks}}
+      <li data-id="{{this.idDrink}}" class="list-group-item">
+        <a href="drink/{{this.idDrink}}">{{this.drinkName}}</a>
+        <img class="thumbnail" src="{{this.drinkImage}}" alt="">
+        {{!-- <button class="btn btn-danger float-right delete">ｘ</button> --}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
