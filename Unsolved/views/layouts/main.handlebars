@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+  <!--- 1 . Message Welcome with a search bar and image / submit button-->
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
   <!---javascript-->
@@ -10,22 +12,34 @@
   <title>Cosmic Cocktails </title>
 </head>
 
-<body>
+<body class="class-for-main">
   {{!-- Nav Bar --}}
-  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-    <h5 class="my-0 mr-md-auto font-weight-normal">Cosmic Cocktails</h5>
+  <nav class="navbar navbar-dark bg-dark">
+   <a class="navbar-brand" href="#">
+    <img src="../assets/img/catcosmic.jpg" width="40" height="40" alt="">
+  </a>
+  {{!--<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">--}}
+    <h3 class="my-0 mr-md-auto text-light font-weight-normal">Cosmic Cocktails</h3>
+    
     <nav class="my-2 my-md-0 mr-md-3">
-      <a class="p-2 text-dark" href="/">Home</a>
-      <a class="p-2 text-dark" href="/favorites">Favorites</a>
+      <a class="p-2 text-light" href="/">Home</a>
+      <a class="p-2 text-light" href="/favorites">Favorites</a>
     </nav>
     <a class="btn btn-outline-primary" href="/login">Sign In</a>
-  </div>
+
+  </nav>
 
   <main>
+    
     {{{body}}}
+
+  <p>main page</p>
+  
   </main>
+
+  
+ 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="/js/index.js"></script>
-
 </body>
 </html>

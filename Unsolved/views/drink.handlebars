@@ -1,8 +1,9 @@
-<div class="container">
+<div class="container" id="drink-img">
   <div class="row">
-
     <div class="col-md-5 fare">
       <div class="card fareDisplay" style="width: auto;" id="fareCard">
+        <br>
+          <button class="btn btn-danger float-right delete">add to Favorites</button>
         <h1>{{drink.drinkName}}</h1>
         <img style="height: 350px" src="{{drink.drinkImage}}" alt="">
       </div>
@@ -11,16 +12,34 @@
 
     <div class="col-md-7 fare">
       <div class="card fareDisplay" style="width: auto;" id="fareCard">
-        <div class="col-md-6">
-          <h2>Ingredients</h2>
+        
+          <h2 id="top-line">Ingredients</h2>
           <ul>
             {{#each drink.ingredients}}
-            <span id="ingredientPics">{{this.name}}: <b>{{this.measurement}}</b></span>
+            <span id="ingredientPics">{{this.name}}: {{this.measurement}} </span>
             <img src="https://www.thecocktaildb.com/images/ingredients/{{this.name}}-Small.png" alt="">
             {{!-- <hr> --}}
+            
+            <p>"This is the drink singular</p>
             {{/each}}
           </ul>
+          
         </div>
+      </div>
+    </div>
+  <hr>
+
+  <br>
+  <div class="row">
+    <div class="col-md-12 fare" id="card-border">
+      <div class="card fareDisplay" style="align: center;" id="fareCard">
+
+        <p class="drink-font"><b>Instructions :</b></p>
+        <p>{{drink.instructions}}</p>
+        <p class="drink-font"><b>Glass:</b> {{drink.glass}}</p>
+        <p id="drink-fonti">Type: {{drink.alcohol}}</p>
+
+
       </div>
     </div>
   </div>
@@ -31,13 +50,9 @@
 
 
 
-<h3>Type: <h5>{{drink.alcohol}}</h5>
-</h3>
-<h3>Glass: <h5>{{drink.glass}}</h5>
-</h3>
-<h3>Instructions</h3>
-<p>{{drink.instructions}}</p>
 
 
 
-</div>
+
+
+
