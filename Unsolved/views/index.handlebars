@@ -1,22 +1,38 @@
 <!-- 2. after user enters a drink to search, images populate on  index page (background still looks like the main page) like modal, holding search results-->
 <div id="home">
-  
-    <div class="container">
-      <h1 class="display-4">Cosmic Cocktails</h1>
-      <h1>{{msg}}</h1>
-      <h2>Be your own bartender! Mix-up your own drink!</h2>
 
-      <form class="clearfix mb-4" method="GET" action="/">
-        <div class="form-group">
-          <label for="drinks-name">Drink Name</label>
-          <input name="query" type="text" id="drinks-name" class="form-control" aria-describedby="drinks-name"
-            placeholder="Enter Drink Name or a Letter">
-        </div>
-        <button type="submit" id="submit" class="btn btn-primary float-right">Submit</button>
-      </form>
-    </div>
-  
-  
+  <style>
+    body {
+      background-image: url(../assets/img/cosmic.jpg);
+      background-repeat: no-repeat;
+      background-position: fixed;
+      background-size: initial;
+      background-attachment: fixed;
+      width: auto;
+      align-items: center;
+    }
+
+    .fareDisplay {
+      width: 0;
+    }
+  </style>
+
+  <div class="container">
+    <h1 class="display-4">Cosmic Cocktails</h1>
+    <h1>{{msg}}</h1>
+    <h2>Be your own bartender! Mix-up your own drink!</h2>
+
+    <form class="clearfix mb-4" method="GET" action="/">
+      <div class="form-group">
+        <label for="drinks-name">Drink Name</label>
+        <input name="query" type="text" id="drinks-name" class="form-control" aria-describedby="drinks-name"
+          placeholder="Enter Drink Name or a Letter">
+      </div>
+      <button type="submit" id="submit" class="btn btn-primary float-right">Submit</button>
+    </form>
+  </div>
+
+
   <div class="container">
     <div class="row">
       <div class="col-md-12 fare">
@@ -25,7 +41,7 @@
             <div class="card bg-dark text-white" style="width: 30rem;">
               <div class="card-header">Results: </div>
               <div class="card-body">
-                
+
                 <ul id="drinks-list" class="list-group">
                   {{#each drinks}}
                   <li data-id="{{this.idDrink}}" class="list-group-item">
