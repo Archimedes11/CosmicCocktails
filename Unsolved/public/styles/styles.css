@@ -6,12 +6,14 @@ h5 {
   font-family: "bevan";
   src: url("../assets/img/Bevan.ttf")
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 7617441390be60d4b1c8645f1991763de6e9d17a
 #drinks-name {
   border: 5px solid darkslategrey;
 }
-
 #fav-card {
   align-items: center;
   background-color: white;
@@ -38,16 +40,17 @@ h5 {
     filter: blur(20px);
     opacity: 0;
     transition: 0.5s;
-    
 }
-
 #submit:hover:before
 {
   filter: blur(20px);
   opacity: 1;
   animation: animate 8s linear infinite;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7617441390be60d4b1c8645f1991763de6e9d17a
 /* h1,
 h2,
 h3,
@@ -57,12 +60,14 @@ p{
   font-family: "potra";
   font-weight: bolder;
 } */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7617441390be60d4b1c8645f1991763de6e9d17a
 #submit:hover
 {
   animation: animate 8s linear infinite;
 }
-
 /*drink*/
 ul#drinks-list img.thumbnail {
   width: 50px;
@@ -70,36 +75,22 @@ ul#drinks-list img.thumbnail {
 }
 #drink-fonts {
   font-size: 20px;
-  
 }
 .drink-font {
   font-size: 20 px;
-  
 }
 #card-border {
   border: 1px solid lightslategrey;
   text-align: center;
 }
-
-
-
 #ingredientPics{
   padding:5px;
 }
 #top-line {
   margin-top: 20px;
 }
-
-
-
-
 /*???*/
-
-
-
-
 #submit{
-  
   transform: translate(-50%,-50%);
   color: #fff;
   text-transform: uppercase;
@@ -112,8 +103,32 @@ ul#drinks-list img.thumbnail {
   margin-right: -42px;
   margin-top: 10px;
   font-weight: bold;
-
-
+}
+/*drink*/
+ul#drinks-list img.thumbnail {
+  width: 50px;
+  height: 50px;
+}
+#drink-fonts {
+  font-size: 20px;
+}
+.drink-font {
+  font-size: 20 px;
+}
+#card-border {
+  border: 1px solid lightslategrey;
+  text-align: center;
+}
+@keyframes animate
+{
+    0%
+    {
+      background-position: 0%;
+    }
+    100%
+    {
+      background-position: 400%;
+    }
 }
 
 /*drink*/
@@ -162,7 +177,10 @@ ul#drinks-list img.thumbnail {
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 7617441390be60d4b1c8645f1991763de6e9d17a
 
 
