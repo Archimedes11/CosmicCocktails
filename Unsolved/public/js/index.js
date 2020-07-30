@@ -1,3 +1,12 @@
+var drinkOption = document.getElementById("drink-Option");
+
+drinkOption.addEventListener("click", function() {
+        var drinkHistory = [];
+drinkHistory.push(this.drinkName);
+console.log(drinkHistory);  
+});
+
+
 // // Get references to page elements this is the logic
 // var $drinksName = $("#drinks-name");
 // //var $drinksIngredients = $("#drinks-ingredients");

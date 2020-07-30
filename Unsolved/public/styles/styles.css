@@ -1,4 +1,3 @@
-
 /*for main*/
 .navbar {
   height: 100px;
@@ -7,29 +6,8 @@ h5 {
   font-family: "bevan";
   src: url("../assets/img/Bevan.ttf")
 }
-
-/*index*/
-#home {
-  background-image: url(../assets/img/cosmic.jpg);
-  background-repeat: no-repeat;
-  background-position: fixed;
-  background-size: initial;
-  width: auto;
-  
-}
-
 #drinks-name {
   border: 5px solid darkslategrey;
-}
-/*favorites*/
-#fav-img {
-  background-image: url(../assets/img/four.jpg);
-  background-size: 1100px;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 750px;
- 
-
 }
 #fav-card {
   align-items: center;
@@ -57,17 +35,14 @@ h5 {
     filter: blur(20px);
     opacity: 0;
     transition: 0.5s;
-    
 }
-
 #submit:hover:before
 {
   filter: blur(20px);
   opacity: 1;
   animation: animate 8s linear infinite;
 }
-
-h1,
+/* h1,
 h2,
 h3,
 h4,
@@ -75,12 +50,11 @@ h5,
 p{
   font-family: "potra";
   font-weight: bolder;
-}
+} */
 #submit:hover
 {
   animation: animate 8s linear infinite;
 }
-
 /*drink*/
 ul#drinks-list img.thumbnail {
   width: 50px;
@@ -88,54 +62,22 @@ ul#drinks-list img.thumbnail {
 }
 #drink-fonts {
   font-size: 20px;
-  
 }
 .drink-font {
   font-size: 20 px;
-  
 }
 #card-border {
   border: 1px solid lightslategrey;
   text-align: center;
 }
-
-
-
 #ingredientPics{
   padding:5px;
 }
 #top-line {
   margin-top: 20px;
 }
-
-
-
-/*login*/
-.login-form {
-  max-width: 300px;
-  margin-top: 5px;
-}
-
-#login-img {
-  background-image: url(../assets/img/catcosmic.jpg);
-  background-repeat: no-repeat;
-  background-size: 750px;
-  background-position: center;
-  height: 750px;
-
-}
-
-#font-ingred {
-  text-align: center;
-}
-
 /*???*/
-
-
-
-
 #submit{
-  
   transform: translate(-50%,-50%);
   color: #fff;
   text-transform: uppercase;
@@ -148,8 +90,32 @@ ul#drinks-list img.thumbnail {
   margin-right: -42px;
   margin-top: 10px;
   font-weight: bold;
-
-
+}
+/*drink*/
+ul#drinks-list img.thumbnail {
+  width: 50px;
+  height: 50px;
+}
+#drink-fonts {
+  font-size: 20px;
+}
+.drink-font {
+  font-size: 20 px;
+}
+#card-border {
+  border: 1px solid lightslategrey;
+  text-align: center;
+}
+@keyframes animate
+{
+    0%
+    {
+      background-position: 0%;
+    }
+    100%
+    {
+      background-position: 400%;
+    }
 }
 /*footer
 #img-foot {
@@ -168,18 +134,6 @@ ul#drinks-list img.thumbnail {
 }
 
 
-
-@keyframes animate
-{
-    0%
-    {
-      background-position: 0%;
-    }
-    100%
-    {
-      background-position: 400%;
-    }
-}
 
 
 
