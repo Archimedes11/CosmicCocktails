@@ -9,7 +9,7 @@ h5 {
 }
 
 /*index*/
-#jumbo-index {
+#home {
   background-image: url(../assets/img/cosmic.jpg);
   background-repeat: no-repeat;
   background-position: fixed;
@@ -17,24 +17,11 @@ h5 {
   width: auto;
   
 }
-#index-img {
-  background-image: url(../assets/img/maxresdefault.jpg);
-  opacity: 75%;
-  
-}
+
 #drinks-name {
   border: 5px solid darkslategrey;
 }
-/*favorites*/
-#fav-img {
-  background-image: url(../assets/img/four.jpg);
-  background-size: 1100px;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 750px;
- 
 
-}
 #fav-card {
   align-items: center;
   background-color: white;
@@ -114,24 +101,6 @@ ul#drinks-list img.thumbnail {
 
 
 
-/*login*/
-.login-form {
-  max-width: 300px;
-  margin-top: 5px;
-}
-
-#login-img {
-  background-image: url(../assets/img/catcosmic.jpg);
-  background-repeat: no-repeat;
-  background-size: 750px;
-  background-position: center;
-  height: 750px;
-
-}
-
-#font-ingred {
-  text-align: center;
-}
 
 /*???*/
 
