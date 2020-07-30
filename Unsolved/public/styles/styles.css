@@ -1,64 +1,51 @@
-@font-face{
-  font-family:"potra";
-  src: url('../assets/Cocktail\ Script.ttf');
+
+/*for main*/
+.navbar {
+  height: 100px;
+}
+h5 {
+  font-family: "bevan";
+  src: url("../assets/img/Bevan.ttf")
 }
 
+/*index*/
+#jumbo-index {
+  background-image: url(../assets/img/cosmic.jpg);
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-size: initial;
+  width: auto;
+  
+}
+#index-img {
+  background-image: url(../assets/img/maxresdefault.jpg);
+  opacity: 75%;
+  
+}
+#drinks-name {
+  border: 5px solid darkslategrey;
+}
+/*favorites*/
+#fav-img {
+  background-image: url(../assets/img/four.jpg);
+  background-size: 1100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 750px;
+ 
 
+}
+#fav-card {
+  align-items: center;
+  background-color: white;
+}
+/*below is also in favorites*/
 .list-group-item {
   line-height: 2.5;
 }
-
-ul#drinks-list img.thumbnail {
-  width: 50px;
-  height: 50px;
+.card {
+  border: none;
 }
-
-.login-form {
-  max-width: 300px;
-}
-
-body {
-  background-image: url(../assets/cosmic.jpg);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-#submit{
-  
-  transform: translate(-50%,-50%);
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  box-sizing: border-box;
-  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
-  background-size: 400%;
-  border-radius: 30px;
-  z-index: 1;
-  margin-right: -42px;
-  margin-top: 10px;
-  font-weight: bold;
-
-
-}
-
-
-#submit:hover
-{
-  animation: animate 8s linear infinite;
-}
-
-@keyframes animate
-{
-    0%
-    {
-      background-position: 0%;
-    }
-    100%
-    {
-      background-position: 400%;
-    }
-}
-
 #submit:before
 {
     content: '';
@@ -93,7 +80,110 @@ p{
   font-family: "potra";
   font-weight: bolder;
 }
+#submit:hover
+{
+  animation: animate 8s linear infinite;
+}
+
+/*drink*/
+ul#drinks-list img.thumbnail {
+  width: 50px;
+  height: 50px;
+}
+#drink-fonts {
+  font-size: 20px;
+  
+}
+.drink-font {
+  font-size: 20 px;
+  
+}
+#card-border {
+  border: 1px solid lightslategrey;
+  text-align: center;
+}
+
+
 
 #ingredientPics{
   padding:5px;
 }
+#top-line {
+  margin-top: 20px;
+}
+
+
+
+/*login*/
+.login-form {
+  max-width: 300px;
+  margin-top: 5px;
+}
+
+#login-img {
+  background-image: url(../assets/img/catcosmic.jpg);
+  background-repeat: no-repeat;
+  background-size: 750px;
+  background-position: center;
+  height: 750px;
+
+}
+
+#font-ingred {
+  text-align: center;
+}
+
+/*???*/
+
+
+
+
+#submit{
+  
+  transform: translate(-50%,-50%);
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-sizing: border-box;
+  background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+  background-size: 400%;
+  border-radius: 30px;
+  z-index: 1;
+  margin-right: -42px;
+  margin-top: 10px;
+  font-weight: bold;
+
+
+}
+/*footer
+#img-foot {
+  background-image: url(../assets/img/handlebars.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 200px;
+}
+.card-footer {
+  height: 50px;
+  color: darkgrey;
+  align-items: center;
+  clear: both;
+  text-align: center
+  text-margin-top: 5px;
+}
+
+
+
+@keyframes animate
+{
+    0%
+    {
+      background-position: 0%;
+    }
+    100%
+    {
+      background-position: 400%;
+    }
+}
+
+
+
