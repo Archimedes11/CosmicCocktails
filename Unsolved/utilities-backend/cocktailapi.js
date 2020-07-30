@@ -16,6 +16,7 @@ var parseDrink = (data) => {
         ingredients: []
     }
 
+
     for(var j = 1; j < 16; j++) {
         var name = data["strIngredient" + j]
         var measurement = data["strMeasure" + j]
@@ -29,6 +30,9 @@ var parseDrink = (data) => {
 
     return drink;
 }
+
+    
+   
 
 var drinkUtilities = {
     getDrinksFromCocktaildb: function(searchQuery, callback) {
