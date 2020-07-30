@@ -1,6 +1,6 @@
 <!-- 2. after user enters a drink to search, images populate on  index page (background still looks like the main page) like modal, holding search results-->
 <div id="home">
-  <div class="jumbotron jumbotron-fluid" id="jumbo-index">
+  
     <div class="container">
       <h1 class="display-4">Cosmic Cocktails</h1>
       <h1>{{msg}}</h1>
@@ -15,7 +15,7 @@
         <button type="submit" id="submit" class="btn btn-primary float-right">Submit</button>
       </form>
     </div>
-  </div>
+  
   
   <div class="container">
     <div class="row">
@@ -32,7 +32,7 @@
                     <a href="drink/{{this.idDrink}}">{{this.drinkName}}</a>
                     <img class="thumbnail" src="{{this.drinkImage}}" alt="">
 
-                    <p>index page</p>
+                    {{!--<p>index page</p>--}}
                   </li>
                   {{/each}}
                 </ul>
