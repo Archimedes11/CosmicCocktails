@@ -106,6 +106,13 @@ ul#drinks-list img.thumbnail {
   border: 1px solid lightslategrey;
   text-align: center;
 }
+#drink-fonti {
+  text-align: center;
+}
+#fareCard {
+  background-color: rgba(245, 245, 245, 0.4);background: transparent;
+  text-align: center;
+}
 @keyframes animate
 {
     0%
