@@ -43,15 +43,7 @@ h5 {
   opacity: 1;
   animation: animate 8s linear infinite;
 }
-/* h1,
-h2,
-h3,
-h4,
-h5,
-p{
-  font-family: "potra";
-  font-weight: bolder;
-} */
+
 #submit:hover
 {
   animation: animate 8s linear infinite;
@@ -88,7 +80,7 @@ ul#drinks-list img.thumbnail {
   background-size: 400%;
   border-radius: 30px;
   z-index: 1;
-  margin-right: -42px;
+  margin-left: 43px;
   margin-top: 10px;
   font-weight: bold;
 }
@@ -154,20 +146,20 @@ ul#drinks-list img.thumbnail {
     }
 }
 
-/*footer
-#img-foot {
-  background-image: url(../assets/img/handlebars.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 200px;
+/*##########################################*/
+.list-group-item{
+  background-color: rgb(0,0,0);
+  text-align: center;
 }
-.card-footer {
-  height: 50px;
-  color: darkgrey;
-  align-items: center;
-  clear: both;
-  text-align: center
-  text-margin-top: 5px;
+
+.card-header,
+#drink-Option{
+  color: palevioletred;
+  font-weight: bolder;
+}
+
+.form-control{
+  width: 50%;
 }
 
 
