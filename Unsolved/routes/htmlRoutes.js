@@ -1,10 +1,17 @@
 var db = require("../models");
 var cocktailAPI = require("../utilities-backend/cocktailapi.js");
+var passport = require('passport');
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     var { query } = req.query;
+
+    if(req.user) {
+      console.log(req.user.UserID);
+    } else {
+      console.log("Logged out");
+    }
 
     if(query) {
       cocktailAPI.getDrinksFromCocktaildb(query, cocktails => {
@@ -36,12 +43,30 @@ module.exports = function(app) {
     res.render("login");
   });
 
+  app.post('/login', 
+    passport.authenticate('local', { failureRedirect: '/login' }),
+    function(req, res) {
+      res.redirect('/');
+    });
+
+  app.get('/register', (req, res) => {
+    res.render("register");
+  })
+
+  app.post('/register', (req, res) => {
+    db.User.create(req.body)
+      .then(_ => res.redirect('/login'))
+      .catch(err => res.redirect('/register'))
+  })
+
   app.get("/favorites", async (req, res) => {
     // Fetch Favorites from DB by UserID
-    var userID = 1;
-    console.log(db.Favorite);
+    if(!req.user) {
+      res.redirect('/login');
+      return;
+    }
 
-    db.Favorite.findAll({where: { UserID: userID }})
+    db.Favorite.findAll({where: { UserID: req.user.UserID }})
       .then( async favorites => {
 
         var drinks = []
@@ -50,8 +75,6 @@ module.exports = function(app) {
           var drink = await cocktailAPI.getCocktailByID(id);
           drinks.push(drink);
         }
-
-        console.log(drinks);
 
         res.render("favorites", {
           drinks: drinks
