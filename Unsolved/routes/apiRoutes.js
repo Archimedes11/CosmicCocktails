@@ -8,34 +8,52 @@ var drinkUtilities = require("../utilities-backend/cocktailapi.js");
 */
 module.exports = function(app) {
   // ======================== UPDATED ROUTES ==========================
-  app.post("/api/favorite/:userID/:drinkID/:isFavorite", (req, res) => {
-    const {userID, drinkID, isFavorite = "false"} = req.params;
+  // app.post("/api/favorite/:userID/:drinkID/:isFavorite", (req, res) => {
+  //   const {userID, drinkID, isFavorite = "false"} = req.params;
 
-    if(isFavorite === "true") {
-      console.log("Removing Favorite");
-      // Remove from favorites
-      db.Favorite.destroy({
-        where: { DrinkID: drinkID }
-      })
-        .then(() => res.status(200).send())
-        .catch(err => {
-          console.log(err)
-          res.status(500).send()
-        })
+  //   if(isFavorite === "true") {
+  //     console.log("Removing Favorite");
+  //     // Remove from favorites
+  //     db.Favorite.destroy({
+  //       where: { DrinkID: drinkID }
+  //     })
+  //       .then(() => res.status(200).send())
+  //       .catch(err => {
+  //         console.log(err)
+  //         res.status(500).send()
+  //       })
 
-      res.status(200);
-    } else {
-      console.log("Adding Favorite");
-      // Add to favorites
-      db.Favorite.create({DrinkID: drinkID, UserID: userID})
-        .then(() => res.status(200).send())
-        .catch(err => {
-          console.log(err)
-          res.status(500).send()
-        })
+  //     res.status(200);
+  //   } else {
+  //     console.log("Adding Favorite");
+  //     // Add to favorites
+  //     db.Favorite.create({DrinkID: drinkID, UserID: userID})
+  //       .then(() => res.status(200).send())
+  //       .catch(err => {
+  //         console.log(err)
+  //         res.status(500).send()
+  //       })
+  //   }
+
+  //   // db.Favorite.
+  // })
+  app.get('/favorites/:DrinkID', (req, res) => {
+
+    if(!req.user) {
+      res.redirect('/login');
+      return;
     }
+    // user id
+    var UserID = req.user.UserID;
+    var DrinkID = req.params.DrinkID;
 
-    // db.Favorite.
+    /*
+      db.Favorite.findAll by userID if it containts the drinkID: remove form favorites, otherwise add
+    */
+
+    //TODO: Check if exists, add if not
+    db.Favorite.create({UserID, DrinkID})
+      .then(_ => res.redirect('/favorites'))
   })
   // ======================== UPDATED ROUTES ==========================
   // Get all examples
