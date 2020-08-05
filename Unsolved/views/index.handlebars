@@ -5,7 +5,7 @@
       background-image: url(../assets/img/cosmic.jpg);
       background-repeat: no-repeat;
       background-position: fixed;
-      background-size:cover;
+      background-size: cover;
       background-attachment: fixed;
       width: auto;
       align-items: center;
@@ -17,20 +17,19 @@
   </style>
 
   <div class="container">
-    <h1 class="display-4">Cosmic Cocktails</h1>
-    <h1>{{msg}}</h1>
-    <h2>Be your own bartender! Mix-up your own drink!</h2>
+    <h1 class="display-4" id="indexHeader">Why limit happy to an hour?</h1>
+    <br>
+    <br>
+    <h2 id="mixItUp">Let's mix it up</h2>
 
     <form class="clearfix mb-4" method="GET" action="/">
       <div class="form-group">
-        <label for="drinks-name">Drink Name</label>
         <input name="query" type="text" id="drinks-name" class="form-control" aria-describedby="drinks-name"
           placeholder="Enter Drink Name or a Letter">
       </div>
-      <button type="submit" id="submit" class="btn btn-primary float-right">Submit</button>
+      <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
-
 
   <div class="container">
     <div class="row">
@@ -46,9 +45,7 @@
                   <li data-id="{{this.idDrink}}" class="list-group-item">
                     <a id="drink-Option" href="drink/{{this.idDrink}}">{{this.drinkName}}</a>
                     <img class="thumbnail" src="{{this.drinkImage}}" alt="">
-                    {{!--<button class="btn btn-danger float-right delete">x</button> --}}
-
-                    {{!--<p>index page</p>--}}
+                    
                   </li>
                   {{/each}}
                 </ul>

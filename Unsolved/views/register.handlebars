@@ -1,21 +1,34 @@
 <div class="container" id="login-img">
+  <style>
+    body {
+      background-image: url(../assets/img/signINBackground.jpg);
+      background-repeat: no-repeat;
+      background-position: fixed;
+      background-size: cover;
+      background-attachment: fixed;
+      width: auto;
+      align-items: center;
+    }
+  </style>
+  </style>
   <div class="row">
     <div class="col-md-12">
       <div class="container text-center login-form">
 
         <form class="form-signin" action="/register" method="POST">
-          <!-- main page and it shows login-->
-          {{!-- <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> --}}
-          <h1 class="h1 mb-6 font-weight-normal text-black">Register</h1>
+          
+          <h1 class="h1 mb-6 font-weight-normal text-black" id="indexHeader-signIn">Register</h1>
 
           <label for="inputUsername" class="sr-only">Username</label>
-          <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="" name="Username">
+          <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus=""
+            name="Username">
 
           <label for="inputPassword" class="sr-only">Password</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" name="Password">
+          <input type="password" id="inputPassword" class="form-control" placeholder="Password" required=""
+            name="Password">
 
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
-          <p class="mt-5 mb-4 text-muted">© 2017-2020</p>
+          <button class="btn btn-lg btn-primary btn-block" type="submit" id="plum">Register</button>
+          
         </form>
       </div>
     </div>
