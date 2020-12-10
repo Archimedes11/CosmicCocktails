@@ -25,7 +25,7 @@
     <form class="clearfix mb-4" method="GET" action="/">
       <div class="form-group">
         <input name="query" type="text" id="drinks-name" class="form-control" aria-describedby="drinks-name"
-          placeholder="Enter Drink Name or a Letter">
+          placeholder="🍹 "Search" 🍹">
       </div>
       <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </form>
@@ -44,7 +44,7 @@
                   {{#each drinks}}
                   <li data-id="{{this.idDrink}}" class="list-group-item">
                     <a id="drink-Option" href="drink/{{this.idDrink}}">{{this.drinkName}}</a>
-                    <img class="thumbnail" src="{{this.drinkImage}}" alt="">
+                    <a href="drink/{{this.idDrink}}"><img class="thumbnail" src="{{this.drinkImage}}" alt=""></a>
                     
                   </li>
                   {{/each}}
