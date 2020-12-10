@@ -25,10 +25,10 @@
       <div class="card fareDisplay" style="width: auto;" id="fareCard">
         <br>
         
-        <h1>{{drink.drinkName}}</h1>
+        <h1><b>{{drink.drinkName}}</b></h1>
         <img style="height: 350px" src="{{drink.drinkImage}}" alt="">
-        <p id="drink-fonti">Type: {{drink.alcohol}}</p>
-        <a href="/favorites/{{drink.idDrink}}" id=favoritesBtn>♥Add to Favorites♥</a>
+        <p id="drink-fonti"><b>Type: {{drink.alcohol}}</b></p>
+        <a href="/favorites/{{drink.idDrink}}" id="favoritesBtn"><h1>♥Add to Favorites♥</h1></a>
       </div>
     </div>
 
@@ -36,10 +36,10 @@
     <div class="col-md-6 fare">
       <div class="card fareDisplay" style="width: auto;" id="fareCard">
 
-        <h1 id="top-line">Ingredients</h1>
+        <h1 id="top-line"><b>Ingredients</b></h1>
         <ul>
           {{#each drink.ingredients}}
-          <span id="ingredientPics">{{this.name}}: {{this.measurement}} <img src="https://www.thecocktaildb.com/images/ingredients/{{this.name}}-Small.png" alt=""></span>
+          <span id="ingredientPics"><h5> <b>{{this.name}}: {{this.measurement}}</b></h5><img src="https://www.thecocktaildb.com/images/ingredients/{{this.name}}-Small.png" alt=""></span>
           
           
 
@@ -57,9 +57,9 @@
     <div class="col-md-12 fare" id="card-border">
       <div class="card fareDisplay" style="align: center;" id="fareCard">
 
-        <p class="drink-font"><b>Instructions :</b></p>
-        <p>{{drink.instructions}}</p>
-        <p class="drink-font"><b>Glass:</b> {{drink.glass}}</p>
+        <h5 class="drink-font"><b>Instructions :</b></h5>
+        <h5><b>{{drink.instructions}}</b></h5>
+        <h5 class="drink-font"><b>Glass: {{drink.glass}}</b></h5>
 
 
 
