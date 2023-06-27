@@ -8,7 +8,8 @@
     "develop": "nodemon server.js",
     "lint": "eslint --quiet .",
     "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit",
+    "migrate": "sequelize-cli db:migrate"
   },
   "license": "ISC",
   "dependencies": {
@@ -40,6 +41,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.22",
-    "prettier": "^2.8.8"
+    "prettier": "^2.8.8",
+    "sequelize-cli": "^6.2.0"
   }
 }
