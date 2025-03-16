@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require("express");
-var exphbs = require('express-handlebars');
+const { engine } = require('express-handlebars');
 const axios = require('axios').default;
 const passport = require('passport');
 const Strategy = require('passport-local').Strategy;
@@ -57,7 +57,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Handlebars
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('handlebars', engine({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
 // Routes

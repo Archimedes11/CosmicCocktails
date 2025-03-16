@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "Bornin1989.",
     "database": "drinks_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "",
+    "password": "Bornin1989.",
     "database": "drinks_db",
     "host": "localhost",
     "dialect": "mysql",
