@@ -15,10 +15,17 @@
     "logging": false
   },
   "production": {
-    "username": "b3d997f1e473fc",
-    "password": "efdf387e",
-    "database": "heroku_435ae374e99a5f6",
-    "host": "us-cdbr-east-06.cleardb.net",
-    "dialect": "mysql"
+    "username": "${DB_USER}",
+    "password": "${DB_PASSWORD}",
+    "database": "${DB_NAME}",
+    "host": "${DB_HOST}",
+    "dialect": "mysql",
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   }
 }
+
